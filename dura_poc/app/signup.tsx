@@ -11,6 +11,7 @@ import {
 import { SafeAreaView } from "react-native-safe-area-context";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import DateInput from "@/components/ui/InputFields/DateInput";
+import { router } from "expo-router";
 
 const signup = () => {
   return (
@@ -46,7 +47,7 @@ const signup = () => {
             />
             <Input className="w-80" placeholder="Password" secureTextEntry />
             <Button
-              onPress={() => alert("SIGNUP BUTTON PRESSED")}
+              onPress={() => router.push("/disclaimer")}
               className="mt-2 py-3 rounded-2xl bg-primaryButton w-80"
               title="Sign Up"
             />

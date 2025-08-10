@@ -49,6 +49,16 @@ export default function RootLayout() {
             contentStyle: { backgroundColor: "#B5EBDB" },
           }}
         />
+        <Stack.Screen
+          name="disclaimer"
+          options={{
+            headerTitle: "Safety Screening & Disclaimer",
+            headerShadowVisible: false,
+            headerStyle: { backgroundColor: "#B5EBDB" },
+            headerTintColor: "#54A38E",
+            contentStyle: { backgroundColor: "#B5EBDB" },
+          }}
+        />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="+not-found" />
       </Stack>

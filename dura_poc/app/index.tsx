@@ -5,7 +5,6 @@ import Button from "@/components/ui/Button";
 import { IconSymbol } from "@/components/ui/IconSymbol.ios";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
-// import { IconSymbol } from "@/components/ui/IconSymbol";
 
 const LandingPage = () => {
   return (

@@ -18,8 +18,13 @@ const Button = ({
 }: Props) => {
   const base = `${className} items-center justify-center rounded-xl px-5 py-3 active:opacity-80`;
   const styles =
-    variant === "primary" ? "bg-primaryButton" : "border border-black";
-  const text = variant === "primary" ? "text-white" : "text-black";
+    variant === "primary"
+      ? "bg-primaryButton"
+      : variant === "error"
+        ? "bg-error"
+        : "border border-black";
+  const text =
+    variant === "primary" || variant === "error" ? "text-white" : "text-black";
   return (
     <Pressable onPress={onPress} className={`${base} ${styles}`}>
       <Text className={`${text}`}>{title}</Text>
