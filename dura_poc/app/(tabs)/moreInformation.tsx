@@ -1,25 +1,39 @@
-import ParallaxScrollView from "@/components/ParallaxScrollView";
-import { ThemedText } from "@/components/ThemedText";
-import { ThemedView } from "@/components/ThemedView";
+import VideoPlayer from "@/components/ui/MediaComponents/VideoPlayer";
 import React from "react";
-import { StyleSheet } from "react-native";
-import { Image } from "expo-image";
+import { StyleSheet, View, Text } from "react-native";
+import PagerView from "react-native-pager-view";
 
 const moreInformation = () => {
+  const videoSource = require("../../assets/videos/example_video.mp4");
+
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: "#A1CEDC", dark: "#1D3D47" }}
-      headerImage={
-        <Image
-          source={require("@/assets/images/partial-react-logo.png")}
-          style={styles.reactLogo}
-        />
-      }
-    >
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Explore</ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <View>
+      <PagerView style={{ height: 260 }} initialPage={0}>
+        <View
+          key="1"
+          style={{ alignItems: "center", justifyContent: "center" }}
+        >
+          <Text>First page</Text>
+          <Text>Swipe ➡️</Text>
+          {/* VideoPlayer not working */}
+          <VideoPlayer videoPath={videoSource} />
+        </View>
+        <View
+          key="2"
+          style={{ alignItems: "center", justifyContent: "center" }}
+        >
+          <Text>Second page</Text>
+        </View>
+        <View
+          key="3"
+          style={{ alignItems: "center", justifyContent: "center" }}
+        >
+          <Text>Third page</Text>
+        </View>
+      </PagerView>
+      {/* VideoPlayer not working */}
+      <VideoPlayer videoPath={videoSource} />
+    </View>
   );
 };
 

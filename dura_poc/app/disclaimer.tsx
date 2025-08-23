@@ -3,6 +3,7 @@ import React from "react";
 import { IconSymbol } from "@/components/ui/IconSymbol.ios";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "@/components/ui/Button";
+import { router } from "expo-router";
 
 const disclaimer = () => {
   const redFlagSymptoms = [
@@ -43,7 +44,11 @@ const disclaimer = () => {
           }}
         />
         <View className="py-1">
-          <Button className="h-12 w-96" title={"None of these apply to me"} />
+          <Button
+            className="h-12 w-96"
+            onPress={() => router.push("/(tabs)/activities")}
+            title={"None of these apply to me"}
+          />
         </View>
         <View className="py-1">
           <Button

@@ -1,12 +1,12 @@
 import { Image } from "expo-image";
-import { Platform, StyleSheet } from "react-native";
+import { Platform, StyleSheet, View, Text } from "react-native";
 
 import { Collapsible } from "@/components/Collapsible";
 import { ExternalLink } from "@/components/ExternalLink";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import { IconSymbol } from "@/components/ui/IconSymbol";
+import PagerView from "react-native-pager-view";
 import React from "react";
 
 export default function TabTwoScreen() {
@@ -14,21 +14,19 @@ export default function TabTwoScreen() {
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
       headerImage={
-        <IconSymbol
-          size={310}
-          color="#808080"
-          name="chevron.left.forwardslash.chevron.right"
-          style={styles.headerImage}
+        <Image
+          source={require("@/assets/images/physioStockImages/stock-physio-image2.avif")}
         />
       }
     >
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Explore</ThemedText>
       </ThemedView>
+
       <ThemedText>
         This app includes example code to help you get started.
       </ThemedText>
-      <Collapsible title="File-based routing">
+      <Collapsible title="Recommended For You">
         <ThemedText>
           This app has two screens:{" "}
           <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText>{" "}
