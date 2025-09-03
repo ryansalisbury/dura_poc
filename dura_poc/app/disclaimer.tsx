@@ -46,7 +46,7 @@ const disclaimer = () => {
         <View className="py-1">
           <Button
             className="h-12 w-96"
-            onPress={() => router.push("/(tabs)/activities")}
+            onPress={() => router.push("/(tabs)/Account")}
             title={"None of these apply to me"}
           />
         </View>

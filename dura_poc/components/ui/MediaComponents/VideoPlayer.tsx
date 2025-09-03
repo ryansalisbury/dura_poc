@@ -1,8 +1,8 @@
 import { useEvent } from "expo";
 import { useVideoPlayer, VideoView } from "expo-video";
 import React from "react";
-import { View, Text } from "react-native";
-import Button from "../Button";
+import { View } from "react-native";
+
 type VideoSource = number | { uri: string };
 
 interface Props {
@@ -15,24 +15,18 @@ const VideoPlayer = ({ videoPath }: Props) => {
     player.play();
   });
 
-  const { isPlaying } = useEvent(player, "playingChange", {
-    isPlaying: player.playing,
-  });
-
   return (
-    <View>
-      <VideoView player={player} allowsFullscreen allowsPictureInPicture />
-      <View>
-        <Button
-          title={isPlaying ? "Pause" : "Play"}
-          onPress={() => {
-            if (isPlaying) {
-              player.pause();
-            } else {
-              player.play();
-            }
-          }}
+    <View className="items-center">
+      <View className="relative w-full h-[200px]">
+        <VideoView
+          player={player}
+          allowsFullscreen
+          allowsPictureInPicture
+          startsPictureInPictureAutomatically
+          style={{ width: "100%", height: 200 }}
+          contentFit="contain"
         />
+        <View></View>
       </View>
     </View>
   );

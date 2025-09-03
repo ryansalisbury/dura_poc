@@ -19,40 +19,46 @@ export default function TabLayout() {
         tabBarActiveTintColor: Colors["light"].tint,
         headerShown: false,
         tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
+        // tabBarBackground: TabBarBackground, // if you keep this, it may override bgColor
         tabBarStyle: Platform.select({
           ios: {
-            // Use a transparent background on iOS to show the blur effect
             position: "absolute",
+            // backgroundColor: "#B5EBDB",
           },
-          default: {},
+          default: {
+            // backgroundColor: "#B5EBDB",
+          },
         }),
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="Index"
         options={{
-          title: "Plan",
+          title: "Home",
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="house.fill" color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="activities"
+        name="Plan"
         options={{
-          title: "Activities",
+          title: "Plan",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="paperplane.fill" color={color} />
+            <IconSymbol
+              size={28}
+              name="chart.line.text.clipboard"
+              color={color}
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="moreInformation"
+        name="Account"
         options={{
-          title: "More Info",
+          title: "Account",
           tabBarIcon: ({ color }) => (
-            <IconSymbol size={28} name="paperplane.fill" color={color} />
+            <IconSymbol size={28} name="person" color={color} />
           ),
         }}
       />

@@ -5,13 +5,16 @@ import Button from "@/components/ui/Button";
 import { IconSymbol } from "@/components/ui/IconSymbol.ios";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
+import { ThemedText } from "@/components/ThemedText";
 
 const LandingPage = () => {
   return (
     <SafeAreaView className="flex-1 bg-primaryBackground">
       <View className="flex-1 px-6 pt-36 flex-col justify-between">
         <View className="items-center">
-          <Text className="text-8xl font-semibold tracking-tight">DURA</Text>
+          <ThemedText className="text-8xl font-semibold tracking-tight">
+            DURA
+          </ThemedText>
         </View>
 
         <View>
@@ -44,7 +47,7 @@ const LandingPage = () => {
         </View>
 
         <View className="w-full items-center">
-          <View className="w-full max-w-[480px] rounded-2xl border border-gray-300 bg-white p-4">
+          <View className="w-full max-w-[480px] rounded-2xl shadow-black bg-secondaryBackground p-4">
             <View className="items-center gap-y-3">
               <IconSymbol
                 name={"exclamationmark.warninglight.fill"}

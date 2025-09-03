@@ -1,15 +1,14 @@
 import { Image } from "expo-image";
-import { Platform, StyleSheet, View, Text } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 import { Collapsible } from "@/components/Collapsible";
 import { ExternalLink } from "@/components/ExternalLink";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import PagerView from "react-native-pager-view";
 import React from "react";
 
-export default function TabTwoScreen() {
+const Plan = () => {
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: "#D0D0D0", dark: "#353636" }}
@@ -113,7 +112,7 @@ export default function TabTwoScreen() {
       </Collapsible>
     </ParallaxScrollView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   headerImage: {
@@ -127,3 +126,5 @@ const styles = StyleSheet.create({
     gap: 8,
   },
 });
+
+export default Plan;

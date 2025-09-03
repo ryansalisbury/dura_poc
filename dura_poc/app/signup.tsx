@@ -9,7 +9,6 @@ import {
   ScrollView,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import DateTimePicker from "@react-native-community/datetimepicker";
 import DateInput from "@/components/ui/InputFields/DateInput";
 import { router } from "expo-router";
 
