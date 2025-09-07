@@ -23,10 +23,10 @@ export default function TabLayout() {
         tabBarStyle: Platform.select({
           ios: {
             position: "absolute",
-            // backgroundColor: "#B5EBDB",
+            backgroundColor: "#FFFFFF",
           },
           default: {
-            // backgroundColor: "#B5EBDB",
+            backgroundColor: "#81C784",
           },
         }),
       }}
@@ -38,12 +38,17 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="house.fill" color={color} />
           ),
+
+          headerStyle: { backgroundColor: "#F9FCF8" },
+          headerTintColor: "#54A38E",
         }}
       />
       <Tabs.Screen
         name="Plan"
         options={{
           title: "Plan",
+          headerStyle: { backgroundColor: "#F9FCF8" },
+          headerTintColor: "#54A38E",
           tabBarIcon: ({ color }) => (
             <IconSymbol
               size={28}
@@ -57,6 +62,8 @@ export default function TabLayout() {
         name="Account"
         options={{
           title: "Account",
+          headerStyle: { backgroundColor: "#F9FCF8" },
+          headerTintColor: "#54A38E",
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="person" color={color} />
           ),

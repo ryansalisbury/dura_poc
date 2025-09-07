@@ -8,7 +8,7 @@ const Account = () => {
   const videoSource = require("../../assets/videos/example_video.mp4");
   const thumbnailSource = require("@/assets/images/physioStockImages/stock-physio-image-1.webp");
   return (
-    <View className="flex flex-col h-full gap-2 bg-[#B5EBDB]">
+    <View className="flex flex-col h-full gap-2 bg-primaryBackground">
       <PagerView
         style={{ height: 260, width: "100%" }}
         offscreenPageLimit={1}

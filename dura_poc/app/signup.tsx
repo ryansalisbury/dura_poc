@@ -1,16 +1,11 @@
 import Button from "@/components/ui/Button";
 import Input from "@/components/ui/InputFields/Input";
 import React from "react";
-import {
-  View,
-  Text,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-} from "react-native";
+import { View, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import DateInput from "@/components/ui/InputFields/DateInput";
 import { router } from "expo-router";
+import { ThemedText } from "@/components/ThemedText";
 
 const signup = () => {
   return (
@@ -24,18 +19,24 @@ const signup = () => {
           keyboardShouldPersistTaps="handled"
         >
           <View className="items-center gap-y-2">
-            <Text className="text-8xl font-semibold tracking-tight">DURA</Text>
+            <ThemedText
+              type="title"
+              className="text-8xl font-semibold tracking-tight leading-[80px]"
+            >
+              DURA
+            </ThemedText>
             <View>
-              <Text className="text-3xl text-center">
+              <ThemedText type="title" className="text-3xl text-center pb-4">
                 Built by Physiotherapists.
-              </Text>
-              <Text className="text-3xl text-center">Designed for You</Text>
+              </ThemedText>
+              <ThemedText type="subtitle" className="text-3xl  text-center">
+                Designed for You
+              </ThemedText>
             </View>
           </View>
 
           <View className="items-center gap-y-3 w-full pt-10">
             <Input className="w-80" placeholder="Name" autoCapitalize="none" />
-            {/* <Input className="w-80" placeholder="Date of Birth" /> */}
             <DateInput />
             <Input
               className="w-80"
@@ -47,7 +48,7 @@ const signup = () => {
             <Input className="w-80" placeholder="Password" secureTextEntry />
             <Button
               onPress={() => router.push("/disclaimer")}
-              className="mt-2 py-3 rounded-2xl bg-primaryButton w-80"
+              className="mt-2 py-3 rounded-2xl bg-primaryColour w-80"
               title="Sign Up"
             />
           </View>

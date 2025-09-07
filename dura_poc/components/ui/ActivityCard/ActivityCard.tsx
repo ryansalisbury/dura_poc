@@ -1,3 +1,4 @@
+import { ThemedText } from "@/components/ThemedText";
 import React from "react";
 import {
   View,
@@ -19,7 +20,7 @@ const ActivityCard = ({ thumbnail, title, description, onPress }: Props) => {
   return (
     <View className="content-center w-full">
       <Pressable onPress={onPress} className="w-full px-4">
-        <View className="w-full max-w-[420px] rounded-xl overflow-hidden border border-black/10 bg-white">
+        <View className="w-full max-w-[420px] rounded-xl overflow-hidden ">
           {/* Give the image a viewport if you position it absolute */}
           <View className="h-[180px]">
             <Image
@@ -29,11 +30,11 @@ const ActivityCard = ({ thumbnail, title, description, onPress }: Props) => {
             />
           </View>
 
-          <View className="p-3 gap-1">
-            <Text className="text-base font-semibold">{title}</Text>
-            <Text className="text-sm text-gray-600" numberOfLines={2}>
+          <View className="p-3 bg-secondaryColour gap-1">
+            <ThemedText className="text-base font-semibold">{title}</ThemedText>
+            <ThemedText className="text-sm text-gray-600" numberOfLines={2}>
               {description}
-            </Text>
+            </ThemedText>
           </View>
         </View>
       </Pressable>

@@ -19,7 +19,7 @@ const Button = ({
   const base = `${className} items-center justify-center rounded-xl px-5 py-3 active:opacity-80`;
   const styles =
     variant === "primary"
-      ? "bg-primaryButton"
+      ? "bg-primaryColour"
       : variant === "error"
         ? "bg-error"
         : "border border-black";

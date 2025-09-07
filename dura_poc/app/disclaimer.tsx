@@ -4,6 +4,7 @@ import { IconSymbol } from "@/components/ui/IconSymbol.ios";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Button from "@/components/ui/Button";
 import { router } from "expo-router";
+import { ThemedText } from "@/components/ThemedText";
 
 const disclaimer = () => {
   const redFlagSymptoms = [
@@ -18,27 +19,29 @@ const disclaimer = () => {
   ];
   return (
     <SafeAreaView>
-      <View className="items-center">
+      <View className="items-center flex flex-col gap-2">
         <IconSymbol
           name={"exclamationmark.warninglight.fill"}
           color={"#54A38E"}
           size={40}
         />
-        <Text className="text-center text-xl font-bold">Important Notice</Text>
-        <Text className="text-center">
+        <ThemedText className="text-center text-xl font-bold">
+          Important Notice
+        </ThemedText>
+        <ThemedText className="text-center">
           If you have any of the following red flag symptoms, we strongly
           recommend consulting with a health care professional before
           proceeding. Your safety is our priority!
-        </Text>
+        </ThemedText>
         <FlatList
           data={redFlagSymptoms}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => {
             return (
               <View className="py-3">
-                <Text className="text-center font-bold text-xl">
+                <ThemedText className="text-center font-bold text-xl">
                   {item.text}
-                </Text>
+                </ThemedText>
               </View>
             );
           }}
@@ -46,7 +49,7 @@ const disclaimer = () => {
         <View className="py-1">
           <Button
             className="h-12 w-96"
-            onPress={() => router.push("/(tabs)/Account")}
+            onPress={() => router.push("/(tabs)/Index")}
             title={"None of these apply to me"}
           />
         </View>

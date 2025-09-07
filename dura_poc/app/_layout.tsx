@@ -11,6 +11,7 @@ import "../global.css";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import React from "react";
+import { UserProvider } from "@/contexts/UserContext/UserProvider";
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
@@ -25,44 +26,46 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
+      <UserProvider>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
 
-        <Stack.Screen
-          name="login"
-          options={{
-            headerTitle: "Log In",
-            headerShadowVisible: false,
-            headerStyle: { backgroundColor: "#B5EBDB" },
-            headerTintColor: "#54A38E",
-            contentStyle: { backgroundColor: "#B5EBDB" },
-          }}
-        />
+          <Stack.Screen
+            name="login"
+            options={{
+              headerTitle: "Log In",
+              headerShadowVisible: false,
+              headerStyle: { backgroundColor: "#F9FCF8" },
+              headerTintColor: "#54A38E",
+              contentStyle: { backgroundColor: "#F9FCF8" },
+            }}
+          />
 
-        <Stack.Screen
-          name="signup"
-          options={{
-            headerTitle: "Sign Up",
-            headerShadowVisible: false,
-            headerStyle: { backgroundColor: "#B5EBDB" },
-            headerTintColor: "#54A38E",
-            contentStyle: { backgroundColor: "#B5EBDB" },
-          }}
-        />
-        <Stack.Screen
-          name="disclaimer"
-          options={{
-            headerTitle: "Safety Screening & Disclaimer",
-            headerShadowVisible: false,
-            headerStyle: { backgroundColor: "#B5EBDB" },
-            headerTintColor: "#54A38E",
-            contentStyle: { backgroundColor: "#B5EBDB" },
-          }}
-        />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
+          <Stack.Screen
+            name="signup"
+            options={{
+              headerTitle: "Sign Up",
+              headerShadowVisible: false,
+              headerStyle: { backgroundColor: "#F9FCF8" },
+              headerTintColor: "#54A38E",
+              contentStyle: { backgroundColor: "#F9FCF8" },
+            }}
+          />
+          <Stack.Screen
+            name="disclaimer"
+            options={{
+              headerTitle: "Safety Screening & Disclaimer",
+              headerShadowVisible: false,
+              headerStyle: { backgroundColor: "#F9FCF8" },
+              headerTintColor: "#54A38E",
+              contentStyle: { backgroundColor: "#F9FCF8" },
+            }}
+          />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+      </UserProvider>
     </ThemeProvider>
   );
 }

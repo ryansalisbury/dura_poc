@@ -10,10 +10,13 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primaryBackground: "#171717",
+        primaryBackground: "#F9FCF8",
         primaryButton: "#21272c",
+        primaryColour: "#2E7D32",
         secondaryBackground: "#21272c",
+        secondaryColour: "#81C784",
         error: "#B82E2E",
+        primaryText: "#1C1C1C",
       },
     },
   },

@@ -41,7 +41,7 @@ export default function Login() {
                 <Input placeholder="Password" secureTextEntry />
                 <Button
                   onPress={() => alert("LOGIN BUTTON PRESSED")}
-                  className="mt-2 py-3 rounded-2xl bg-primaryButton"
+                  className="mt-2 py-3 rounded-2xl bg-primaryColour"
                   title="Log in"
                 />
               </View>
