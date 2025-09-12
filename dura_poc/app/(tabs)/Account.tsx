@@ -1,7 +1,6 @@
 import ActivityCard from "@/components/ui/ActivityCard/ActivityCard";
-import VideoPlayer from "@/components/ui/MediaComponents/VideoPlayer";
 import React from "react";
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import PagerView from "react-native-pager-view";
 
 const Account = () => {
@@ -46,15 +45,7 @@ const Account = () => {
         </View>
       </PagerView>
       {/* VideoPlayer not working */}
-      <VideoPlayer videoPath={videoSource} />
-      <ActivityCard
-        thumbnail={thumbnailSource}
-        title={"Hip Mobility"}
-        description={
-          "Learn how to open your hips up with safe progression and developement."
-        }
-        onPress={() => console.log("NAVIGATE TO CONTENT PAGE", thumbnailSource)}
-      />
+      {/* <VideoPlayer videoPath={videoSource} /> */}
     </View>
   );
 };

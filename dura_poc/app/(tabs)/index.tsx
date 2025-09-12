@@ -1,102 +1,101 @@
+import { ThemedText } from "@/components/ThemedText";
+import ActivityCard from "@/components/ui/ActivityCard/ActivityCard";
+import SessionWidget from "@/components/ui/SessionWidget/SessionWidget";
+import StickyBanner from "@/components/ui/StickyBanner/StickyBanner";
+import { stubData } from "@/stub/content/HealthTips";
+import { session1 } from "@/stub/sessions/session1/session1";
+import React from "react";
 import {
-  FlatList,
-  StyleSheet,
-  View,
   Dimensions,
+  FlatList,
   Pressable,
   ScrollView,
+  StyleSheet,
+  View,
 } from "react-native";
-import React, { useContext } from "react";
-import { stubData } from "@/stub/content/HealthTips";
-
-import ActivityCard from "@/components/ui/ActivityCard/ActivityCard";
-import { ThemedText } from "@/components/ThemedText";
-import { UserContext } from "@/contexts/UserContext/UserContext";
-import { router } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const Index = () => {
   const { width } = Dimensions.get("window");
-  const { firstName } = useContext(UserContext);
+  // const { firstName } = useContext(UserContext);
 
   return (
-    <ScrollView
+    <SafeAreaView className="flex-1 bg-primaryBackground" edges={["top"]}>
+      <ScrollView
+      stickyHeaderIndices={[0]}
       className="flex-1 bg-primaryBackground"
-      contentContainerClassName="flex flex-col gap-6 items-center pt-16 pb-24"
+      contentContainerClassName="flex flex-col gap-6 items-stretch pb-24"
       showsVerticalScrollIndicator={false}
     >
-      <ThemedText type="subtitle">Welcome Back {firstName}</ThemedText>
+      {/* Sticky banner header */}
+      <StickyBanner />
+      <View className="items-center">
+        <View className=" h-32 w-80">
+          <SessionWidget session={session1} />
+        </View>
 
-      <View className=" h-32 w-80 bg-gray-300 rounded">
-        <Pressable
-          className="h-full w-full"
-          onPress={() => alert("navigate to Plan page")}
-        >
-          <ThemedText>Next Session Widget here</ThemedText>
-          <ThemedText>Session tracker here</ThemedText>
-        </Pressable>
-      </View>
+        {/* Example exercise info slides */}
+        <View className="w-full">
+          <ThemedText className="pl-8" type="subtitle">
+            Mobility Exercises
+          </ThemedText>
+          <FlatList
+            data={stubData}
+            keyExtractor={(item, index) => `${item.id}-${index}`}
+            horizontal
+            pagingEnabled
+            bounces={false}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <View style={{ width, padding: 16 }}>
+                <ActivityCard
+                  thumbnail={item.thumbnail}
+                  title={item.title}
+                  description={item.description}
+                  onPress={() => alert(`Navigate to ${item.title}`)}
+                />
+              </View>
+            )}
+          />
+        </View>
 
-      {/* Example exercise info slides */}
-      <View className="w-full">
-        <ThemedText className="pl-8" type="subtitle">
-          Mobility Exercises
-        </ThemedText>
-        <FlatList
-          data={stubData}
-          keyExtractor={(item, index) => `${item.id}-${index}`}
-          horizontal
-          pagingEnabled
-          bounces={false}
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <View style={{ width, padding: 16 }}>
-              <ActivityCard
-                thumbnail={item.thumbnail}
-                title={item.title}
-                description={item.description}
-                onPress={() => alert(`Navigate to ${item.title}`)}
-              />
-            </View>
-          )}
-        />
-      </View>
+        <View className="items-center h-32 w-80 bg-gray-300 rounded">
+          <Pressable
+            className="h-full w-full"
+            onPress={() => alert("navigate to Plan page")}
+          >
+            <ThemedText>Weekly planner Visuals here</ThemedText>
+            <ThemedText>M T W T F S S</ThemedText>
+          </Pressable>
+        </View>
 
-      {/* ✅ You’ll see this now */}
-      <View className="items-center h-32 w-80 bg-gray-300 rounded">
-        <Pressable
-          className="h-full w-full"
-          onPress={() => alert("navigate to Plan page")}
-        >
-          <ThemedText>Weekly planner Visuals here</ThemedText>
-          <ThemedText>M T W T F S S</ThemedText>
-        </Pressable>
+        {/* Example exercise info slides */}
+        <View className="w-full">
+          <ThemedText className="pl-8" type="subtitle">
+            Mobility Exercises
+          </ThemedText>
+          <FlatList
+            data={stubData}
+            keyExtractor={(item, index) => `${item.id}-${index}`}
+            horizontal
+            pagingEnabled
+            bounces={false}
+            showsHorizontalScrollIndicator={false}
+            renderItem={({ item }) => (
+              <View style={{ width, padding: 16 }}>
+                <ActivityCard
+                  thumbnail={item.thumbnail}
+                  title={item.title}
+                  description={item.description}
+                  onPress={() => alert(`Navigate to ${item.title}`)}
+                />
+              </View>
+            )}
+          />
+        </View>
       </View>
-
-      {/* Example exercise info slides */}
-      <View className="w-full">
-        <ThemedText className="pl-8" type="subtitle">
-          Mobility Exercises
-        </ThemedText>
-        <FlatList
-          data={stubData}
-          keyExtractor={(item, index) => `${item.id}-${index}`}
-          horizontal
-          pagingEnabled
-          bounces={false}
-          showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => (
-            <View style={{ width, padding: 16 }}>
-              <ActivityCard
-                thumbnail={item.thumbnail}
-                title={item.title}
-                description={item.description}
-                onPress={() => alert(`Navigate to ${item.title}`)}
-              />
-            </View>
-          )}
-        />
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
