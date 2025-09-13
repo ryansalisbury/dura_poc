@@ -1,18 +1,18 @@
-import React from "react";
-import { View } from "react-native";
-import "../global.css";
+import { ThemedText } from "@/components/ThemedText";
 import Button from "@/components/ui/Button";
 import { IconSymbol } from "@/components/ui/IconSymbol.ios";
-import { SafeAreaView } from "react-native-safe-area-context";
 import { router } from "expo-router";
-import { ThemedText } from "@/components/ThemedText";
+import React from "react";
+import { View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import "../global.css";
 
 const LandingPage = () => {
   return (
     <SafeAreaView className="flex-1 bg-primaryBackground">
       <View className="flex-1 px-6 pt-32 flex-col justify-between">
         <View className="items-center">
-          <ThemedText type="title" className="text-8xl leading-[80px]">
+          <ThemedText type="title" className="text-8xl leading-[90px]">
             DURA
           </ThemedText>
         </View>

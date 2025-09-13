@@ -10,8 +10,8 @@ interface Props {
 
 const SessionWidget: React.FC<Props> = ({ session, className }) => {
   return (
-    <View className="h-full w-full">
-      <ThemedText>TEST</ThemedText>
+    <View className="bg-gray-100 h-full w-full">
+      <ThemedText>DURA</ThemedText>
     </View>
   );
 };

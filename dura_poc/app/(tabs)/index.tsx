@@ -20,80 +20,83 @@ const Index = () => {
   // const { firstName } = useContext(UserContext);
 
   return (
-    <SafeAreaView className="flex-1 bg-primaryBackground" edges={["top"]}>
+    <SafeAreaView className="flex-1 bg-white" edges={["top"]}>
       <ScrollView
-      stickyHeaderIndices={[0]}
-      className="flex-1 bg-primaryBackground"
-      contentContainerClassName="flex flex-col gap-6 items-stretch pb-24"
-      showsVerticalScrollIndicator={false}
-    >
-      {/* Sticky banner header */}
-      <StickyBanner />
-      <View className="items-center">
-        <View className=" h-32 w-80">
-          <SessionWidget session={session1} />
-        </View>
-
-        {/* Example exercise info slides */}
-        <View className="w-full">
-          <ThemedText className="pl-8" type="subtitle">
-            Mobility Exercises
+        stickyHeaderIndices={[0]}
+        className="flex-1 bg-white"
+        contentContainerClassName="flex flex-col  gap-6 items-stretch pb-24"
+        showsVerticalScrollIndicator={false}
+      >
+        {/* Sticky banner header */}
+        <StickyBanner />
+        <View className="items-center">
+          <ThemedText className="pl-8" type="title">
+            Your Next Session
           </ThemedText>
-          <FlatList
-            data={stubData}
-            keyExtractor={(item, index) => `${item.id}-${index}`}
-            horizontal
-            pagingEnabled
-            bounces={false}
-            showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <View style={{ width, padding: 16 }}>
-                <ActivityCard
-                  thumbnail={item.thumbnail}
-                  title={item.title}
-                  description={item.description}
-                  onPress={() => alert(`Navigate to ${item.title}`)}
-                />
-              </View>
-            )}
-          />
-        </View>
+          <View className="h-[20vh] w-[80vw]">
+            <SessionWidget session={session1} />
+          </View>
 
-        <View className="items-center h-32 w-80 bg-gray-300 rounded">
-          <Pressable
-            className="h-full w-full"
-            onPress={() => alert("navigate to Plan page")}
-          >
-            <ThemedText>Weekly planner Visuals here</ThemedText>
-            <ThemedText>M T W T F S S</ThemedText>
-          </Pressable>
-        </View>
+          {/* Example exercise info slides */}
+          <View className="w-full">
+            <ThemedText className="pl-8" type="subtitle">
+              Mobility Exercises
+            </ThemedText>
+            <FlatList
+              data={stubData}
+              keyExtractor={(item, index) => `${item.id}-${index}`}
+              horizontal
+              pagingEnabled
+              bounces={false}
+              showsHorizontalScrollIndicator={false}
+              renderItem={({ item }) => (
+                <View style={{ width, padding: 16 }}>
+                  <ActivityCard
+                    thumbnail={item.thumbnail}
+                    title={item.title}
+                    description={item.description}
+                    onPress={() => alert(`Navigate to ${item.title}`)}
+                  />
+                </View>
+              )}
+            />
+          </View>
 
-        {/* Example exercise info slides */}
-        <View className="w-full">
-          <ThemedText className="pl-8" type="subtitle">
-            Mobility Exercises
-          </ThemedText>
-          <FlatList
-            data={stubData}
-            keyExtractor={(item, index) => `${item.id}-${index}`}
-            horizontal
-            pagingEnabled
-            bounces={false}
-            showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <View style={{ width, padding: 16 }}>
-                <ActivityCard
-                  thumbnail={item.thumbnail}
-                  title={item.title}
-                  description={item.description}
-                  onPress={() => alert(`Navigate to ${item.title}`)}
-                />
-              </View>
-            )}
-          />
+          <View className="items-center h-32 w-80 bg-gray-300 rounded">
+            <Pressable
+              className="h-full w-full"
+              onPress={() => alert("navigate to Plan page")}
+            >
+              <ThemedText>Weekly planner Visuals here</ThemedText>
+              <ThemedText>M T W T F S S</ThemedText>
+            </Pressable>
+          </View>
+
+          {/* Example exercise info slides */}
+          <View className="w-full">
+            <ThemedText className="pl-8" type="subtitle">
+              Mobility Exercises
+            </ThemedText>
+            <FlatList
+              data={stubData}
+              keyExtractor={(item, index) => `${item.id}-${index}`}
+              horizontal
+              pagingEnabled
+              bounces={false}
+              showsHorizontalScrollIndicator={false}
+              renderItem={({ item }) => (
+                <View style={{ width, padding: 16 }}>
+                  <ActivityCard
+                    thumbnail={item.thumbnail}
+                    title={item.title}
+                    description={item.description}
+                    onPress={() => alert(`Navigate to ${item.title}`)}
+                  />
+                </View>
+              )}
+            />
+          </View>
         </View>
-      </View>
       </ScrollView>
     </SafeAreaView>
   );
