@@ -1,10 +1,10 @@
-import { View, Text, FlatList } from "react-native";
-import React from "react";
-import { IconSymbol } from "@/components/ui/IconSymbol.ios";
-import { SafeAreaView } from "react-native-safe-area-context";
-import Button from "@/components/ui/Button";
-import { router } from "expo-router";
 import { ThemedText } from "@/components/ThemedText";
+import Button from "@/components/ui/Button";
+import { IconSymbol } from "@/components/ui/IconSymbol.ios";
+import { router } from "expo-router";
+import React from "react";
+import { FlatList, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const disclaimer = () => {
   const redFlagSymptoms = [
@@ -49,7 +49,7 @@ const disclaimer = () => {
         <View className="py-1">
           <Button
             className="h-12 w-96"
-            onPress={() => router.push("/(tabs)/Index")}
+            onPress={() => router.push("/Questionnaire")}
             title={"None of these apply to me"}
           />
         </View>

@@ -7,6 +7,7 @@ interface Props {
   onPress?: () => void;
   variant?: string;
   textClassName?: string;
+  isDisabled?: boolean;
 }
 
 const Button = ({
@@ -14,6 +15,7 @@ const Button = ({
   className,
   onPress,
   variant = "primary",
+  isDisabled,
   textClassName,
 }: Props) => {
   const base = `${className} items-center justify-center rounded-xl px-5 py-3 active:opacity-80`;
@@ -26,7 +28,11 @@ const Button = ({
   const text =
     variant === "primary" || variant === "error" ? "text-white" : "text-black";
   return (
-    <Pressable onPress={onPress} className={`${base} ${styles}`}>
+    <Pressable
+      onPress={onPress}
+      disabled={isDisabled}
+      className={`${base} ${styles}`}
+    >
       <Text className={`${text}`}>{title}</Text>
     </Pressable>
   );

@@ -1,11 +1,11 @@
-import Button from "@/components/ui/Button";
-import Input from "@/components/ui/InputFields/Input";
-import React from "react";
-import { View, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
-import DateInput from "@/components/ui/InputFields/DateInput";
-import { router } from "expo-router";
 import { ThemedText } from "@/components/ThemedText";
+import Button from "@/components/ui/Button";
+import DateInput from "@/components/ui/InputFields/DateInput";
+import Input from "@/components/ui/InputFields/Input";
+import { router } from "expo-router";
+import React from "react";
+import { KeyboardAvoidingView, Platform, ScrollView, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const signup = () => {
   return (
@@ -21,7 +21,7 @@ const signup = () => {
           <View className="items-center gap-y-2">
             <ThemedText
               type="title"
-              className="text-8xl font-semibold tracking-tight leading-[80px]"
+              className="text-8xl font-semibold tracking-tight leading-[100px]"
             >
               DURA
             </ThemedText>

@@ -63,6 +63,7 @@ const StickyBanner: React.FC = () => {
               calendarBackground: "#FFFFFF",
               indicatorColor: "#2E7D32",
               selectedDayBackgroundColor: "#2E7D32",
+              selectedDayTextColor: "#FFFFFF",
             }}
           />
         </CalendarProvider>

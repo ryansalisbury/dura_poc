@@ -60,6 +60,17 @@ export default function RootLayout() {
             />
 
             <Stack.Screen
+              name="Questionnaire"
+              options={{
+                headerTitle: "Questionnaire",
+                headerShadowVisible: false,
+                headerStyle: { backgroundColor: "#F9FCF8" },
+                headerTintColor: "#54A38E",
+                contentStyle: { backgroundColor: "#F9FCF8" },
+              }}
+            />
+
+            <Stack.Screen
               name="signup"
               options={{
                 headerTitle: "Sign Up",
