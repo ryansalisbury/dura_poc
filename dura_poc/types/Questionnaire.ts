@@ -1,8 +1,16 @@
 export type GoalKey = "KneeHealth" | "ReduceBackPain" | "ImproveHipMobility"; // what is the goal of the user (improve hip health, improve mobility, reduce knee pain)
 
+export type AnswerOption = {
+  id: string;
+  label: string; // visible label (e.g., "Often")
+  value: number; // numeric value for scoring/analytics
+};
+
 export type Question = {
+  id: string;
   question: string;
-  score: number; // e.g., Likert 0-10 or 0-5
+  type: "singleChoice" | "scale"; // can extend to 'multipleChoice' later
+  options: AnswerOption[]; // answer choices or generated scale options
 };
 
 export interface Questionnaire {

@@ -18,7 +18,7 @@ const Button = ({
   isDisabled,
   textClassName,
 }: Props) => {
-  const base = `${className} items-center justify-center rounded-xl px-5 py-3 active:opacity-80`;
+  const base = `${className} items-center justify-center rounded-xl px-5 py-3 active:opacity-80 ${isDisabled ? "bg-slate-500" : ""}`;
   const styles =
     variant === "primary"
       ? "bg-primaryColour"
@@ -33,7 +33,7 @@ const Button = ({
       disabled={isDisabled}
       className={`${base} ${styles}`}
     >
-      <Text className={`${text}`}>{title}</Text>
+      <Text className={`${text} `}>{title}</Text>
     </Pressable>
   );
 };
