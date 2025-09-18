@@ -23,7 +23,7 @@ const QuestionView: React.FC<Props> = ({
       <Pressable
         key={option.id}
         onPress={() => setSelectedOption(option.id)}
-        className={`self-center w-11/12 max-w-[420px] justify-center h-10 flex flex-col gap-6 rounded-xl  shadow-md ${iSelected ? "bg-primaryColour text-white  shadow-primaryColour" : "border-transparent bg-white shadow-black/20"}`}
+        className={`self-center w-11/12 max-w-[420px] justify-center h-10 flex flex-col gap-6 rounded-full  shadow-md ${iSelected ? "bg-primaryColour text-white  shadow-primaryColour" : "border-transparent bg-white shadow-black/20"}`}
       >
         <View className="rounded-xl  items-center overflow-hidden">
           <ThemedText

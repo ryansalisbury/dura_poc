@@ -1,16 +1,32 @@
+import StyledTextField from "@/components/inputFields/StyledTextField/StyledTextField";
+import Button from "@/components/ui/Button";
 import React from "react";
+import { useForm } from "react-hook-form";
 import {
-  View,
-  Text,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
+  Text,
+  View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Input from "@/components/ui/InputFields/Input";
-import Button from "@/components/ui/Button";
+
+export type LoginForm = { email: string; password: string };
 
 export default function Login() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginForm>({
+    defaultValues: { email: "", password: "" },
+    mode: "onTouched",
+  });
+
+  const handleLoginSubmit = (data: LoginForm) => {
+    // TODO submit form data to backend
+    console.log(data);
+  };
   return (
     <SafeAreaView className="flex-1 bg-primaryBackground">
       <KeyboardAvoidingView
@@ -37,10 +53,39 @@ export default function Login() {
               </View>
 
               <View className="w-full max-w-[320px] gap-y-3">
-                <Input placeholder="Email" autoCapitalize="none" />
-                <Input placeholder="Password" secureTextEntry />
+                <StyledTextField
+                  control={control}
+                  name="email"
+                  placeholder="Email"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  autoComplete="email"
+                  textContentType="emailAddress"
+                  keyboardType="email-address"
+                  rules={{
+                    required: "Email is required",
+                    pattern: {
+                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                      message: "Enter a valid email address",
+                    },
+                  }}
+                  error={errors.email?.message}
+                />
+                <StyledTextField
+                  control={control}
+                  name="password"
+                  placeholder="Password"
+                  secureTextEntry
+                  autoComplete="password"
+                  textContentType="password"
+                  rules={{
+                    required: "Password is required",
+                    minLength: { value: 6, message: "Min 6 characters" },
+                  }}
+                  error={errors.password?.message}
+                />
                 <Button
-                  onPress={() => alert("LOGIN BUTTON PRESSED")}
+                  onPress={handleSubmit(handleLoginSubmit)}
                   className="mt-2 py-3 rounded-2xl bg-primaryColour"
                   title="Log in"
                 />

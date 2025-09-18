@@ -10,6 +10,7 @@ import {
 import { GoalKey, Question } from "@/types/Questionnaire";
 import { router } from "expo-router";
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Pressable, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
@@ -20,6 +21,9 @@ const Questionnaire: React.FC = () => {
   >(undefined);
   const [showNextQuestions, setShowNextQuestions] = useState<boolean>(false);
   const [questionCounter, setQuestionCounter] = useState(0);
+  const [score, setScore] = useState<number[]>([]);
+
+  const { register } = useForm();
 
   const initialQuestionsRender = GOAL_OPTIONS.map((goal, index) => {
     return (
