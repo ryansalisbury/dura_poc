@@ -1,12 +1,14 @@
 import { ThemedText } from "@/components/ThemedText";
 import Button from "@/components/ui/Button";
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import QuestionView from "@/components/ui/Questionnaire/QuestionView";
 import TextCard from "@/components/ui/TextCard/TextCard";
 import {
   FOLLOW_UP_QUESTIONS,
   GOAL_OPTIONS,
 } from "@/stub/questionnaire/questions";
 import { GoalKey, Question } from "@/types/Questionnaire";
+import { router } from "expo-router";
 import React, { useState } from "react";
 import { Pressable, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -34,12 +36,10 @@ const Questionnaire: React.FC = () => {
     );
   });
 
-  //TODO, show index of questiona nd options using the QuestionView component
-
   return (
     <SafeAreaView className="px-4">
       <View className="flex flex-col gap-8">
-        {!showNextQuestions && (
+        {!showNextQuestions ? (
           <>
             <ThemedText type="title">Hello!</ThemedText>
             <ThemedText type="subtitle">What do you want to do?</ThemedText>
@@ -58,8 +58,30 @@ const Questionnaire: React.FC = () => {
                   }
                 }}
               />
+              <Button
+                isDisabled={!selectedGoal}
+                title="NEXT"
+                className="min-w-72"
+                onPress={() => router.push("/(tabs)/Index")}
+              />
             </View>
           </>
+        ) : (
+          followUpQuestions && (
+            <View>
+              <QuestionView
+                questionCounter={questionCounter}
+                setQuestionCounter={setQuestionCounter}
+                questionnaireSize={followUpQuestions.length - 1}
+                question={{
+                  id: followUpQuestions[questionCounter].id,
+                  question: followUpQuestions[questionCounter].question,
+                  type: followUpQuestions[questionCounter].type,
+                  options: followUpQuestions[questionCounter].options,
+                }}
+              />
+            </View>
+          )
         )}
       </View>
     </SafeAreaView>
