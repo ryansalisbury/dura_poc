@@ -1,19 +1,25 @@
-import { LoginForm } from "@/app/login";
 import React from "react";
-import controller, { Controller } from "react-hook-form";
+import {
+  Controller,
+  Control,
+  FieldValues,
+  FieldPath,
+  RegisterOptions,
+} from "react-hook-form";
 import { Text, TextInput, TextInputProps, View } from "react-native";
 
-interface Props extends TextInputProps {
-  control: controller.Control<LoginForm, any, LoginForm>;
-  name: "email" | "password";
-  rules?: controller.RegisterOptions<LoginForm>;
+interface Props<TFieldValues extends FieldValues = FieldValues>
+  extends TextInputProps {
+  control: Control<TFieldValues>;
+  name: FieldPath<TFieldValues>;
+  rules?: RegisterOptions<TFieldValues, FieldPath<TFieldValues>>;
   className?: string;
   label?: string;
   placeholder?: string;
   secureTextEntry?: boolean;
   error?: string;
 }
-const StyledTextField: React.FC<Props> = ({
+const StyledTextField = <TFieldValues extends FieldValues = FieldValues>({
   control,
   name,
   rules,
@@ -24,7 +30,7 @@ const StyledTextField: React.FC<Props> = ({
   placeholder,
   keyboardType,
   ...props
-}) => {
+}: Props<TFieldValues>) => {
   return (
     <View className={className}>
       {label && <Text className="text-gray-900 font-medium">{label}</Text>}

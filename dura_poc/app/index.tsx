@@ -38,7 +38,7 @@ const LandingPage = () => {
             <Button
               className="w-72 rounded-2xl py-3 bg-primaryColour"
               title="Sign Up"
-              onPress={() => router.push("/signup")}
+              onPress={() => router.push("/Signup")}
             />
             <Button
               className="w-72 rounded-2xl py-3 border-primaryColour"

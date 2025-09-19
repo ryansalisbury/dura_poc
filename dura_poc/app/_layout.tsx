@@ -71,7 +71,7 @@ export default function RootLayout() {
             />
 
             <Stack.Screen
-              name="signup"
+              name="Signup"
               options={{
                 headerTitle: "Sign Up",
                 headerShadowVisible: false,

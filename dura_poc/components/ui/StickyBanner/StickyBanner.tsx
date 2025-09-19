@@ -1,13 +1,13 @@
 import { ThemedText } from "@/components/ThemedText";
-import { UserContext } from "@/contexts/UserContext/UserContext";
+import { useUser } from "@/contexts/UserContext/UserContext";
 import { router } from "expo-router";
-import React, { useContext, useMemo } from "react";
+import React, { useMemo } from "react";
 import { Pressable, View } from "react-native";
 import { CalendarProvider, WeekCalendar } from "react-native-calendars";
 import { IconSymbol } from "../IconSymbol";
 
 const StickyBanner: React.FC = () => {
-  const { firstName } = useContext(UserContext);
+  const { user, setUser } = useUser();
 
   const today = useMemo(() => {
     const d = new Date();
@@ -24,12 +24,12 @@ const StickyBanner: React.FC = () => {
       <View className="flex flex-col">
         <View className="flex-row items-center justify-between mx-6">
           <View className="rounded-full border border-b">
-            <IconSymbol size={50} name="brain.head.profile" color={"#2E7D32"} />
+            <IconSymbol size={50} name="person.fill" color={"#2E7D32"} />
           </View>
 
           <View className="flex flex-col gap-0 items-start">
             <ThemedText type="subtitle" className="text-black font-semibold">
-              Welcome back {firstName}
+              Welcome back {user?.firstName}
             </ThemedText>
 
             <ThemedText type="subsubtitle" className=" py-1">
