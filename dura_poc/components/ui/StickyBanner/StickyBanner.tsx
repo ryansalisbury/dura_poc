@@ -7,7 +7,7 @@ import { CalendarProvider, WeekCalendar } from "react-native-calendars";
 import { IconSymbol } from "../IconSymbol";
 
 const StickyBanner: React.FC = () => {
-  const { user, setUser } = useUser();
+  const { user } = useUser();
 
   const today = useMemo(() => {
     const d = new Date();
@@ -23,7 +23,7 @@ const StickyBanner: React.FC = () => {
     <View className="w-full flex-none bg-white py-3">
       <View className="flex flex-col">
         <View className="flex-row items-center justify-between mx-6">
-          <View className="rounded-full border border-b">
+          <View className="rounded-full border border-primaryColour">
             <IconSymbol size={50} name="person.fill" color={"#2E7D32"} />
           </View>
 

@@ -1,8 +1,8 @@
 import { User } from "@/types/User";
-import { createContext, useContext } from "react";
+import { createContext, useContext, Dispatch, SetStateAction } from "react";
 export type UserContextValue = {
   user: User | undefined;
-  setUser: React.Dispatch<React.SetStateAction<User | undefined>>;
+  setUser: Dispatch<SetStateAction<User | undefined>>;
 };
 
 export const UserContext = createContext<UserContextValue | undefined>(
